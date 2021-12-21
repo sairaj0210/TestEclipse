@@ -25,7 +25,7 @@ object IDM extends App
   import spark.sqlContext.implicits._
   val df = data.toDF(columns:_*)
   
-  
+df.show  
   val df2 = df.map(row=>{
     val country = row.getString(2)
     val state = row.getString(3)
@@ -35,5 +35,5 @@ object IDM extends App
     (row.getString(0),row.getString(1),fullCountry,fullState)
   }).toDF(columns:_*)
 
-  df2.show(false)
+  df2.show(5,false)
 }
